@@ -161,10 +161,6 @@ public class EnrolledEvents extends AppCompatActivity
                 Intent it = new Intent(EnrolledEvents.this, Profile.class);
                 startActivity(it);
                 break;
-            case R.id.webLink2:
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.weclub.in/"));
-                startActivity(browserIntent);
-                break;
             case R.id.eventsUp2:
                 Intent it1 = new Intent(EnrolledEvents.this, UpcomingEvents.class);
                 startActivity(it1);

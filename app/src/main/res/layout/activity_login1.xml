@@ -18,7 +18,8 @@
         app:layout_constraintEnd_toStartOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/splash_1" />
 
     <TextView
         android:id="@+id/textView"
@@ -40,6 +41,7 @@
         tools:text="WE" />
 
 
+
     <EditText
         android:id="@+id/moNo"
         android:layout_width="wrap_content"
@@ -58,16 +60,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_gravity="center"
-        android:layout_marginEnd="4dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/email"
-        app:layout_constraintEnd_toStartOf="@+id/moNo"
-        app:layout_constraintTop_toTopOf="@+id/moNo" />
 
     <EditText
         android:id="@+id/pass3"
@@ -96,7 +88,8 @@
         android:layout_marginTop="72dp"
         android:src="@drawable/password"
         app:layout_constraintEnd_toStartOf="@+id/pass3"
-        app:layout_constraintTop_toTopOf="@+id/moNo" />
+        app:layout_constraintTop_toTopOf="@+id/moNo"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/forgotpassword"
@@ -194,7 +187,7 @@
         android:layout_width="71dp"
         android:layout_height="65dp"
         android:layout_marginBottom="79dp"
-        android:src="@drawable/googlepluslogo"
+        android:src="@drawable/googlepluslogin2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.039"
@@ -219,7 +212,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="184dp"
         android:layout_marginStart="8dp"
-        android:src="@drawable/fblogin"
+        android:src="@drawable/fblogin2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView7"
         app:layout_constraintHorizontal_bias="1.0"

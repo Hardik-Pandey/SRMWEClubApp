@@ -1,8 +1,11 @@
 package in.weclub.srmweclubapp;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.google.zxing.BarcodeFormat;
@@ -13,14 +16,22 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 public class ClaimReward extends AppCompatActivity {
 
+    private String t;
+    private String id;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_claim_reward);
 
+            ActionBar actionBar = getSupportActionBar();
+
+            if(actionBar != null)
+                actionBar.setDisplayHomeAsUpEnabled(true);
+
             ImageView qrCode = (ImageView)findViewById(R.id.imageView8);
-            String id = getIntent().getStringExtra("UID");
-            setTitle(getIntent().getStringExtra("Title"));
+            id = getIntent().getStringExtra("UID");
+            t = getIntent().getStringExtra("Title");
+            setTitle(t);
             MultiFormatWriter mfw = new MultiFormatWriter();
             try
             {
@@ -34,4 +45,17 @@ public class ClaimReward extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+            Intent it;
+            if(t.equals("Claim Offer"))
+                it = new Intent(this, FindPartner.class);
+            else{
+                it = new Intent(this, EventDescription.class);
+                it.putExtra("Event ID",id);
+            }
+        startActivityForResult(it, 0);
+        return true;
+
+    }
 }

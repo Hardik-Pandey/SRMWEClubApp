@@ -117,8 +117,10 @@ public class UpcomingEvents extends AppCompatActivity
         srp.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                                      @Override
                                      public void onRefresh() {
-                                         infoList.clear();
-                                         getInfo();
+                                         finish();
+                                         overridePendingTransition( 0, 0);
+                                         startActivity(getIntent());
+                                         overridePendingTransition( 0, 0);
                                      }
                                  });
         //srp.setRefreshing(!(srp.isRefreshing()));
@@ -227,12 +229,8 @@ public class UpcomingEvents extends AppCompatActivity
         {
             case R.id.partners2:
                 Intent i = new Intent(UpcomingEvents.this, FindPartner.class);
-                i.putExtra("Vendor Second", true);
+                i.putExtra("RefreshOnce", true);
                 startActivity(i);
-                break;
-            case R.id.webLink3:
-                Toast.makeText(this, "In Progress...", Toast.LENGTH_SHORT).show();
-                //startActivity(new Intent(UpcomingEvents.this, WebNav.class));
                 break;
             case R.id.virtCard2:
                 startActivity(new Intent(UpcomingEvents.this, Profile.class));

@@ -100,10 +100,7 @@ public class Profile extends AppCompatActivity
             case R.id.partners:
                 startActivity(new Intent(Profile.this, FindPartner.class));
                 break;
-            case R.id.webLink2:
-                Toast.makeText(this, "In Progress...", Toast.LENGTH_SHORT).show();
-               // startActivity(new Intent(Profile.this, WebNav.class));
-                break;
+
 
             case R.id.edit:
                 startActivity(new Intent(Profile.this, EditProfile.class));

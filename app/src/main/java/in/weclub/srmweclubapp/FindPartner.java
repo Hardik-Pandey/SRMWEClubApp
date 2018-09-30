@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -67,15 +68,16 @@ public class FindPartner extends AppCompatActivity
         rLM = new LinearLayoutManager(this);
         rView.setLayoutManager(rLM);
 
-        va = new VendorAdapter(this,vendorInfos);
 
         srp = (SwipeRefreshLayout)findViewById(R.id.swipeContainerPartner);
+
+        va = new VendorAdapter(this,vendorInfos);
 
         FirebaseDatabase fd = FirebaseDatabase.getInstance();
         final DatabaseReference ref = fd.getReference("Offers");
                 ref.addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         //vendorInfos.clear();
                         for(DataSnapshot ds : dataSnapshot.getChildren()){
                             String n = ds.child("Vendor Name").getValue(String.class);
@@ -94,7 +96,6 @@ public class FindPartner extends AppCompatActivity
 
         va.notifyDataSetChanged();
         rView.setAdapter(va);
-        getInfo();
         refresh();
     }
 
@@ -102,7 +103,6 @@ public class FindPartner extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         getInfo();
-
     }
 
     private void refresh(){
@@ -110,7 +110,10 @@ public class FindPartner extends AppCompatActivity
         srp.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                getInfo();
+                finish();
+                overridePendingTransition( 0, 0);
+                startActivity(getIntent());
+                overridePendingTransition( 0, 0);
             }
         });
         //srp.setRefreshing(false);
@@ -199,10 +202,6 @@ public class FindPartner extends AppCompatActivity
             case R.id.virtCard:
                 startActivity(new Intent(FindPartner.this, Profile.class));
                 //newIntent(Profile.class);
-                break;
-            case R.id.webLink2:
-                Toast.makeText(this, "In Progress...", Toast.LENGTH_SHORT).show();
-                //startActivity(new Intent(FindPartner.this, WebNav.class));
                 break;
             case R.id.eventsUp2:
                 startActivity(new Intent(FindPartner.this, UpcomingEvents.class));

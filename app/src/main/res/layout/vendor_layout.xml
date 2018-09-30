@@ -1,61 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/tools"
-    android:id="@+id/vend"
-    android:layout_width="116dp"
-    android:layout_height="177.3dp"
-    android:layout_marginBottom="2.7dp"
-    android:layout_marginLeft="3.3dp"
-    android:layout_marginRight="3.3dp"
-    android:layout_marginTop="2.7dp"
-    android:elevation="10dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/CardView"
+    android:id="@+id/parentLayout"
+    android:layout_width="match_parent"
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/vendView"
+    android:layout_height="225dp"
+    tools:ignore="ContentDescription">
+
+
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="270dp"
+        android:layout_gravity="center"
         android:elevation="10dp"
-        app:cardBackgroundColor="@color/cardview_light_background"
-        card_view:cardCornerRadius="15dp">
+        android:layout_margin="5dp"
+
+        card_view:cardBackgroundColor="@color/cardview_light_background"
+        card_view:cardCornerRadius="15dp"
+        tools:ignore="DuplicateIds">
 
         <ImageView
             android:id="@+id/vendImg"
+            android:paddingTop="0dp"
             android:layout_width="match_parent"
-            android:layout_height="142dp"
-            app:srcCompat="@drawable/app_background" />
-
-        <TextView
-
-            android:id="@+id/vendName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="104dp"
-            android:text="Biggies"
-            android:textColor="#ffffff"
-
-            android:textSize="10.7sp" />
-
-        <TextView
-            android:id="@+id/vendLoc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="117dp"
-            android:text="near srm ist, modi"
-            android:textColor="#e4e4e4"
-            android:textSize="8sp" />
+            android:layout_height="130dp"
+            card_view:srcCompat="@drawable/app_background" />
 
         <TextView
             android:id="@+id/offer"
-            android:layout_width="wrap_content"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="150dp"
-            android:text="Discount upto 10%"
-            android:textColor="#595959"
-            android:textSize="9.3sp" />
+            android:paddingTop="150dp"
+            android:paddingLeft="20dp"
+            android:text="Offer"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/vendName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="131dp"
+            android:paddingLeft="20dp"
+            android:text="Vendor Name"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="16sp" />
+
+
+
+        <TextView
+            android:id="@+id/vendLoc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@id/card_view"
+            android:paddingTop="175dp"
+            android:text="Vendor Location"
+            android:paddingLeft="20dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="16sp" />
+
     </android.support.v7.widget.CardView>
+
 
 </RelativeLayout>

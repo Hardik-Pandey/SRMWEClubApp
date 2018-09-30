@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -35,7 +36,7 @@ public class VendorAdapter extends RecyclerView.Adapter<VendorAdapter.ViewHolder
             vendLoc = (TextView)v.findViewById(R.id.vendLoc);
             offer = (TextView)v.findViewById(R.id.offer);
             img = (ImageView)v.findViewById(R.id.vendImg);
-            parentLayout = v.findViewById(R.id.vend);
+            parentLayout = v.findViewById(R.id.parentLayout);
         }
     }
 

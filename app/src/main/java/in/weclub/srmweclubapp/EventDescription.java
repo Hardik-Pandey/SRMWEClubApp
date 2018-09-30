@@ -8,10 +8,12 @@ import android.graphics.PorterDuff;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -42,7 +44,10 @@ public class EventDescription extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_description);
 
+        ActionBar actionBar = getSupportActionBar();
 
+        if(actionBar != null)
+            actionBar.setDisplayHomeAsUpEnabled(true);
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final FirebaseUser u = FirebaseAuth.getInstance().getCurrentUser();
@@ -200,5 +205,17 @@ public class EventDescription extends AppCompatActivity {
         overridePendingTransition( 0, 0);
         startActivity(getIntent());
         overridePendingTransition( 0, 0);
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, UpcomingEvents.class));
+        super.onBackPressed();
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        startActivityForResult(new Intent(this, UpcomingEvents.class), 0);
+        return true;
+
     }
 }

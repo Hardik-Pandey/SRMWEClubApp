@@ -16,9 +16,6 @@
         <item
             android:id="@+id/edit"
             android:title="Edit Profile" />
-        <item
-            android:id="@+id/webLink2"
-            android:title="Go to our website" />
     </group>
 
     <item android:title="Communicate">

@@ -14,9 +14,6 @@
             android:id="@+id/enrolled1"
             android:title="Enrolled Events" />
         <item
-            android:id="@+id/webLink3"
-            android:title="Go to our website" />
-        <item
             android:id="@+id/edit3"
             android:title="Edit Profile" />
     </group>
