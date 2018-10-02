@@ -10,18 +10,21 @@
 
     <ImageView
         android:id="@+id/logo2"
-        android:layout_width="126dp"
-        android:layout_height="105dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/splash_1"
+        android:layout_width="294dp"
+        android:layout_height="148dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/we"
+        app:layout_constraintBottom_toTopOf="@+id/moNo"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/splash_1" />
+        app:layout_constraintVertical_bias="0.8" />
 
-    <TextView
+    <!-- <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="104dp"
@@ -29,7 +32,7 @@
         android:layout_marginEnd="68dp"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="WE"
+
         android:textAlignment="viewStart"
         android:textColor="#ffffff"
         android:textSize="72.7sp"
@@ -38,8 +41,22 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/logo2"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="WE" />
+        tools:text="WE" / -->
 
+
+    <ImageView
+        android:id="@+id/emailIcon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/email"
+        app:layout_constraintEnd_toStartOf="@+id/moNo"
+        app:layout_constraintTop_toTopOf="@+id/moNo"
+        app:srcCompat="@drawable/email" />
+=======
+>>>>>>> upstream/master
 
 
     <EditText
@@ -50,11 +67,11 @@
         android:backgroundTint="@color/cardview_light_background"
         android:ems="10"
         android:hint="E mail"
-        android:textCursorDrawable="@null"
-        android:textAlignment="viewStart"
         android:inputType="textEmailAddress"
+        android:textAlignment="viewStart"
         android:textColor="@color/cardview_light_background"
         android:textColorHint="@color/cardview_light_background"
+        android:textCursorDrawable="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -86,10 +103,10 @@
         android:layout_height="20dp"
         android:layout_gravity="center"
         android:layout_marginTop="72dp"
+        android:contentDescription="TODO"
         android:src="@drawable/password"
         app:layout_constraintEnd_toStartOf="@+id/pass3"
-        app:layout_constraintTop_toTopOf="@+id/moNo"
-        android:contentDescription="TODO" />
+        app:layout_constraintTop_toTopOf="@+id/moNo" />
 
     <TextView
         android:id="@+id/forgotpassword"

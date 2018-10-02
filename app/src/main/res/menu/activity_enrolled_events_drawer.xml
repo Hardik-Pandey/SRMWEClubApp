@@ -4,11 +4,14 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/virtCard"
-            android:title="Show Virtual Card" />
-        <item
             android:id="@+id/eventsUp2"
             android:title="Upcoming Events" />
+        <item
+            android:id="@+id/partner4"
+            android:title="Find Offers" />
+        <item
+            android:id="@+id/virtCard"
+            android:title="Show Virtual Card" />
         <item
             android:id="@+id/edit4"
             android:title="Edit Profile" />

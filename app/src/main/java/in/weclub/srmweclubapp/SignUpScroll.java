@@ -29,7 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SignUpScroll extends AppCompatActivity {
 
     private EditText fName;
-    private EditText lName;
+    //private EditText lName;
     private EditText mobNo;
     private EditText email;
     private EditText pass;
@@ -37,41 +37,56 @@ public class SignUpScroll extends AppCompatActivity {
     private ImageView userbutton;
     private Button backbtn;
     private Button reg;
-    DatabaseHelper dh;
+
     final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_scroll);
-        dh = new DatabaseHelper(this);
+
+
+        fName = (EditText)findViewById(R.id.fNameE);
+
+
         fName = (EditText)findViewById(R.id.fName);
+
         //lName = (EditText)findViewById(R.id.lName);
         mobNo = (EditText)findViewById(R.id.moNum);
         email = (EditText)findViewById(R.id.email);
         pass = (EditText)findViewById(R.id.pass);
         conpass = (EditText)findViewById(R.id.conpass);
-        reg = (Button)findViewById(R.id.reg);
         backbtn= (Button) findViewById(R.id.back_button);
+        reg = (Button)findViewById(R.id.reg);
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SignUpScroll.this,LoginActivity1.class);
+                startActivity(i);
+                finish();
+            }
+        });
         userbutton  = (ImageView)findViewById(R.id.userbutton);
         userbutton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
              Intent i = new Intent(SignUpScroll.this,upload_pic.class);
              startActivity(i);
+             finish();
             }
           });
-        backbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-             Intent i = new Intent(SignUpScroll.this,LoginActivity1.class);
-             startActivity(i);
-            }
-        });
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (pass.getText().toString().equals(conpass.getText().toString())) {
+                if (fName.getText().toString().length()<1)
+                    fName.setError("Please enter your name");
+                else if (email.getText().toString().length()<1)
+                    email.setError("Please enter a valid email");
+                else if(mobNo.getText().toString().length()!=10)
+                    mobNo.setError("Please enter a valid 10-digit Mobile Number");
+                else if (pass.getText().toString().length()<1)
+                    pass.setError("Please enter your password");
+                else if (pass.getText().toString().equals(conpass.getText().toString())) {
                     char[] c = new char[11];
                     fName.getText().toString().getChars(0, 2, c, 0);
                     email.getText().toString().getChars(0, 2, c, 3);

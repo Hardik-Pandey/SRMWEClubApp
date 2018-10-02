@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SRMWEClubApp</string>
+    <string name="app_name">SRM WE Club</string>
     <string name="title_activity_login">Welcome</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -20,4 +20,5 @@
     <string name="title_activity_upcoming_events">Upcoming Events</string>
     <string name="title_activity_enrolled_events">Enrolled Events</string>
     <string name="title_activity_web_nav">WEbsite</string>
+    <string name="title_activity_get_offers">Get Offers</string>
 </resources>

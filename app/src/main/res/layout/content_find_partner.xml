@@ -14,9 +14,13 @@
         android:id="@+id/swipeContainerPartner"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <include layout="@layout/content_upcoming_events"/>
-
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recVend"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </android.support.v4.widget.SwipeRefreshLayout>
 </android.support.constraint.ConstraintLayout>

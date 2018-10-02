@@ -28,7 +28,9 @@ import java.util.UUID;
 
 public class upload_pic extends AppCompatActivity  {
 
-    private Button select,upload;
+    private Button select;
+    private Button upload;
+    private ImageView back_pic_picupload;
     private ImageView userpic;
     private Uri filepath;
     private final int Pick_image_request =71;
@@ -41,7 +43,15 @@ public class upload_pic extends AppCompatActivity  {
         select = (Button) findViewById(R.id.image_upload);
         upload = (Button)findViewById(R.id.image_loadtodb);
         userpic = (ImageView)findViewById(R.id.userpic);
-
+        back_pic_picupload = (ImageView)findViewById(R.id.back_pic_picupload);
+        back_pic_picupload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(upload_pic.this,SignUpScroll.class);
+                startActivity(i);
+                finish();
+            }
+        });
         //Firebase storage reference and get firebase storage reference
 
         storage = FirebaseStorage.getInstance();

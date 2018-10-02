@@ -229,7 +229,7 @@ public class UpcomingEvents extends AppCompatActivity
         {
             case R.id.partners2:
                 Intent i = new Intent(UpcomingEvents.this, FindPartner.class);
-                i.putExtra("RefreshOnce", true);
+                i.putExtra("RefreshOnce", false);
                 startActivity(i);
                 break;
             case R.id.virtCard2:

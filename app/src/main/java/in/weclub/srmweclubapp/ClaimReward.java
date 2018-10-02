@@ -2,6 +2,8 @@ package in.weclub.srmweclubapp;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,8 +27,10 @@ public class ClaimReward extends AppCompatActivity {
 
             ActionBar actionBar = getSupportActionBar();
 
-            if(actionBar != null)
+            if(actionBar != null) {
                 actionBar.setDisplayHomeAsUpEnabled(true);
+                actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#007ee5")));
+            }
 
             ImageView qrCode = (ImageView)findViewById(R.id.imageView8);
             id = getIntent().getStringExtra("UID");

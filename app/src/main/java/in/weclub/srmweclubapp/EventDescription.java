@@ -3,11 +3,16 @@ package in.weclub.srmweclubapp;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -46,8 +51,10 @@ public class EventDescription extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
 
-        if(actionBar != null)
+        if(actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#007ee5")));
+        }
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final FirebaseUser u = FirebaseAuth.getInstance().getCurrentUser();
@@ -77,6 +84,8 @@ public class EventDescription extends AppCompatActivity {
                 String s = getIntent().getExtras().getString("Event ID");
                 DataSnapshot ds = dataSnapshot.child(s);
                 String name = ds.child("Event Name").getValue(String.class);
+                setTitle(name);
+
                 String spk = ds.child("Speaker").getValue(String.class);
                 String url = ds.child("Image").getValue(String.class);
                 String decp = ds.child("Description").getValue(String.class);
@@ -138,7 +147,9 @@ public class EventDescription extends AppCompatActivity {
                                                 @Override
                                                 public void onClick(DialogInterface dialogInterface, int i) {
                                                     DatabaseReference ref1 = database.getReference("Users");
-                                                    ref1.child(u.getUid()).child("Registered Events").child(f).setValue("Un-Registered");
+                                                    //ref1.child(u.getUid()).child("Registered Events").child(f).setValue("Un-Registered");
+                                                    if(ref1.child(u.getUid()).child("Registered Events").child(f) != null)
+                                                        ref1.child(u.getUid()).child("Registered Events").child(f).removeValue();
                                                     Toast.makeText(EventDescription.this, "You've been unregistered from the event", Toast.LENGTH_SHORT).show();
                                                     registered = false;
                                                     changeCol();
@@ -209,13 +220,12 @@ public class EventDescription extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(this, UpcomingEvents.class));
+        //startActivity(new Intent(this, UpcomingEvents.class));
         super.onBackPressed();
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
         startActivityForResult(new Intent(this, UpcomingEvents.class), 0);
         return true;
-
     }
 }

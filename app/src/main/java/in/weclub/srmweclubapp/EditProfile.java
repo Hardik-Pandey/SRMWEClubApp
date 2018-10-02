@@ -1,8 +1,12 @@
 package in.weclub.srmweclubapp;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,6 +36,13 @@ public class EditProfile extends AppCompatActivity {
         moN = (EditText)findViewById(R.id.moNumE);
 
         user = firebaseAuth.getCurrentUser();
+
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#007ee5")));
+        }
+
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("Users");
         ref.addValueEventListener(new ValueEventListener() {
@@ -62,5 +73,10 @@ public class EditProfile extends AppCompatActivity {
                     ref1.child("Mobile number: ").setValue(m);
             }
         });
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        onBackPressed();
+        return true;
     }
 }

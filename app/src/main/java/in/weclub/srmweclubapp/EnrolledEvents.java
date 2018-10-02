@@ -65,6 +65,7 @@ public class EnrolledEvents extends AppCompatActivity
 
         FirebaseDatabase ref = FirebaseDatabase.getInstance();
         DatabaseReference dr = ref.getReference("Users").child(user.getUid()).child("Registered Events");
+
         dr.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -168,6 +169,9 @@ public class EnrolledEvents extends AppCompatActivity
             case R.id.edit4:
                 Intent it2 = new Intent(EnrolledEvents.this, EditProfile.class);
                 startActivity(it2);
+                break;
+            case R.id.partner4:
+                startActivity(new Intent(this, FindPartner.class));
                 break;
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
